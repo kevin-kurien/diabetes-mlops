@@ -11,3 +11,16 @@ Clone the repository:
 ```bash
 git clone https://github.com/your-username/diabetes-model-demo.git
 ```
+
+create a virtual environment:
+```
+python -m venv .mlops
+.\.mlops\Scripts\Activate.ps1
+```
+
+install requirement.txt:
+
+```
+pip install -r requirements.txt
+```
+
