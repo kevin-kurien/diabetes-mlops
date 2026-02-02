@@ -35,3 +35,34 @@ docker build -t diabetes-model-demo .
 docker run -p 8000:8000 diabetes-model-demo
 ```
 The API will be available at http://localhost:8000/docs.
+
+## Kubernetes (kind)
+
+Create a kind cluster:
+
+```
+kind create cluster --name demo-mlops
+```
+Load the Docker image into the kind cluster:
+
+```
+kind load docker-image diabetes-model-demo --name demo-mlops
+```
+Deploy the application using the Kubernetes manifest:
+
+```
+kubectl apply -f deploy.yaml
+```
+Verify pods and services:
+
+```
+kubectl get pods
+kubectl get services
+```
+Use port-forwarding to access the API:
+```
+kubectl port-forward service/<service-name> 8000:8000
+```
+Then visit http://localhost:8000/docs to interact with the API.
+
+The project can now run locally, inside a Docker container, or fully deployed in a Kubernetes cluster.
