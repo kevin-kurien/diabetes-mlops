@@ -23,4 +23,15 @@ install requirement.txt:
 ```
 pip install -r requirements.txt
 ```
+Run the FastAPI application locally:
+```
+uvicorn main:app --reload --host 0.0.0.0 --port 8000
+```
+Build the Docker image and run the docker container:
 
+```
+docker build -t diabetes-model-demo .
+
+docker run -p 8000:8000 diabetes-model-demo
+```
+The API will be available at http://localhost:8000/docs.
